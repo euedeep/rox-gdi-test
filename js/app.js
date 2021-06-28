@@ -926,6 +926,7 @@ function file_video(path) {
 	<video id="vplayer" width="100%" height="100%" playsinline controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen']; data-plyr-config="{ "title": "${decodename}"}" data-poster="${poster}" style="--plyr-captions-text-color: #ffffff;--plyr-captions-background: #000000;">
 	  <source src="${url}" type="video/mp4" />
 	  <source src="${url}" type="video/webm" />
+	  <source src="${url}" type="video/x-matroska" />
 	  <track kind="captions" label="Default" src="${caption}.vtt" srclang="en" />
     <track kind="captions" label="English" src="${caption}.en.vtt" srclang="en" default />
     <track kind="captions" label="Hindi" src="${caption}.hi.vtt" srclang="hi" />
