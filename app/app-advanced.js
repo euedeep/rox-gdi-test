@@ -319,26 +319,19 @@ function requestSearch(params, resultCallback) {
 
 // Render file list
 function list(path) {
-  var ad = $.append(
-    "<scr" +
-      'ipt type="text/javascript" src="http' +
-      (location.protocol === "https:" ? "s" : "") +
-      '://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js"></scr' +
-      "ipt>"
-  );
   var content = `<div class="container">${UI.fixed_header ? "<br>" : ""}
   	<div id="update"></div>
     <!-- iklan -->
     <div id="CXWeBKy" class="vQYyEkn is-center">
     <script type="text/javascript">
 	atOptions = {
-		"key" : "53d4fb43bf38bed090f277872cdd93e7",
-		"format" : "iframe",
-		"height" : 90,
-		"width" : 728,
-		"params" : {}
+		'key' : '53d4fb43bf38bed090f277872cdd93e7',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
 	};
-	${ad}
+	document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js"></scr' + 'ipt>');
 </script>
     </div>
     <!-- iklan -->
