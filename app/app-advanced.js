@@ -319,27 +319,23 @@ function requestSearch(params, resultCallback) {
 
 // Render file list
 function list(path) {
-  async function allowCors() {
-    var x = new XMLHttpRequest();
-    x.open(
-      "GET",
-      "https://cors-anywhere.herokuapp.com/https://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js"
-    );
-    // I put "XMLHttpRequest" here, but you can use anything you want.
-    x.setRequestHeader(
-      "Access-Control-Allow-Origin",
-      "https://www.variouscreativeformats.com"
-    );
-    x.onload = function () {
+  async function allowCorsBro() {
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+    const apiUrl =
+      "https://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js";
+    try {
+      const response = await fetch(apiUrl);
       console.log("Ok");
-    };
-    x.send();
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   var ad = $(this).append(
     "<scr" +
       'ipt type="application/javascript" src="' +
-      allowCors() +
+      allowCorsBro() +
       '"></scr' +
       "ipt>"
   );
