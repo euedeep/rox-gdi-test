@@ -319,10 +319,18 @@ function requestSearch(params, resultCallback) {
 
 // Render file list
 function list(path) {
+  var t = $("script");
+  t.setAttribute(
+    "src",
+    "//www.variouscreativeformats.com/d7fb8ebfd2973fc6fc22b1d22f2d33ed/invoke.js"
+  );
+  t.setAttribute("type", "text/javascript");
+  t.setAttribute("async", "async");
+  $("head").append(t);
   var content = `<div class="container">${UI.fixed_header ? "<br>" : ""}
   	<div id="update"></div>
     <!-- iklan -->
-    <div class="vQYyEkn is-center">
+    <div id="CXWeBKy" class="vQYyEkn is-center">
     <script type="text/javascript">
     	atOptions = {
       'key' : 'd7fb8ebfd2973fc6fc22b1d22f2d33ed',
@@ -331,16 +339,15 @@ function list(path) {
 		  'width' : 728,
 		  'params' : {}
 	  };
-	  document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.variouscreativeformats.com/d7fb8ebfd2973fc6fc22b1d22f2d33ed/invoke.js"></scr' + 'ipt>');
     </script>
     </div>
     <!-- iklan -->
-      <div id="head_md" style="display:none; padding: 20px 20px;"></div>
-      <div class="${
-        UI.path_nav_alert_class
-      } d-flex align-items-center" role="alert" style="margin-bottom: 0; padding-bottom: 0rem;">
+    <div id="head_md" style="display:none; padding: 20px 20px;"></div>
+    <div class="${
+      UI.path_nav_alert_class
+    } d-flex align-items-center" role="alert" style="margin-bottom: 0; padding-bottom: 0rem;">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-      <ol class="breadcrumb" id="folderne"><li class="breadcrumb-item"><a href="/">Home</a></li>`;
+    <ol class="breadcrumb" id="folderne"><li class="breadcrumb-item"><a href="/">Home</a></li>`;
   var navlink = "";
   var navfulllink = window.location.pathname;
   var breadbar = "";
