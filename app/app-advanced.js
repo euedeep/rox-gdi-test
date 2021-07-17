@@ -319,44 +319,30 @@ function requestSearch(params, resultCallback) {
 
 // Render file list
 function list(path) {
-  async function allowCorsBro() {
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-    const apiUrl =
-      "https://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js";
-    try {
-      const response = await fetch(apiUrl);
-      console.log("Ok");
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // async function allowCorsBro() {
+  //   const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  //   const apiUrl =
+  //     "https://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js";
+  //   try {
+  //     const response = await fetch(apiUrl);
+  //     console.log("Ok");
+  //     return response;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  var ad = $(this).append(
-    "<scr" +
-      'ipt type="application/javascript" src="' +
-      allowCorsBro() +
-      '"></scr' +
-      "ipt>"
-  );
+  // var ad = $(this).append(
+  //   "<scr" +
+  //     'ipt type="application/javascript" src="' +
+  //     allowCorsBro() +
+  //     '"></scr' +
+  //     "ipt>"
+  // );
 
   var content = `<div class="container">${UI.fixed_header ? "<br>" : ""}
   	<div id="update"></div>
 
-    <!-- iklan -->
-    <div id="CXWeBKy" class="vQYyEkn is-center">
-    <script type="text/javascript">
-	atOptions = {
-		"key" : "53d4fb43bf38bed090f277872cdd93e7",
-		"format" : "iframe",
-		"height" : 90,
-		"width" : 728,
-		"params" : {}
-	};
-	${ad}
-</script>
-</div>
-<!-- iklan -->
     <div id="head_md" style="display:none; padding: 20px 20px;"></div>
     <div class="${
       UI.path_nav_alert_class
