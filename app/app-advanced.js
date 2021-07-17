@@ -319,7 +319,7 @@ function requestSearch(params, resultCallback) {
 
 // Render file list
 function list(path) {
-  var ad = $("head").append(
+  var ad = $.append(
     "<scr" +
       'ipt type="text/javascript" src="http' +
       (location.protocol === "https:" ? "s" : "") +
