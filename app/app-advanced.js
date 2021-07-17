@@ -319,11 +319,11 @@ function requestSearch(params, resultCallback) {
 
 // Render file list
 function list(path) {
-  var ad = $("body").append(
+  var ad = $("head").append(
     "<scr" +
       'ipt type="text/javascript" src="http' +
       (location.protocol === "https:" ? "s" : "") +
-      '://www.variouscreativeformats.com/d7fb8ebfd2973fc6fc22b1d22f2d33ed/invoke.js"></scr' +
+      '://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js"></scr' +
       "ipt>"
   );
   var content = `<div class="container">${UI.fixed_header ? "<br>" : ""}
@@ -332,7 +332,7 @@ function list(path) {
     <div id="CXWeBKy" class="vQYyEkn is-center">
     <script type="text/javascript">
 	atOptions = {
-		"key" : "d7fb8ebfd2973fc6fc22b1d22f2d33ed",
+		"key" : "53d4fb43bf38bed090f277872cdd93e7",
 		"format" : "iframe",
 		"height" : 90,
 		"width" : 728,
