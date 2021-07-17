@@ -319,14 +319,6 @@ function requestSearch(params, resultCallback) {
 
 // Render file list
 function list(path) {
-  var t = $("script");
-  t.setAttribute(
-    "src",
-    "//www.variouscreativeformats.com/d7fb8ebfd2973fc6fc22b1d22f2d33ed/invoke.js"
-  );
-  t.setAttribute("type", "text/javascript");
-  t.setAttribute("async", "async");
-  $("head").append(t);
   var content = `<div class="container">${UI.fixed_header ? "<br>" : ""}
   	<div id="update"></div>
     <!-- iklan -->
