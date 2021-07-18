@@ -1721,7 +1721,7 @@ function PkJnRObc() {
 		'width' : 728,
 		'params' : {}
 	};
-	document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '${allowCorsBro()}"></scr' + 'ipt>');
+	document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js"></scr' + 'ipt>');
 </script>
   `;
   $("#CXWeBKy").html(content);
