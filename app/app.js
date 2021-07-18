@@ -1679,6 +1679,7 @@ $(function () {
     });*/
 
   render(path);
+  PkJnRObc();
 });
 
 // Copy to Clipboard for Direct Links, This will be modified soon with other UI
@@ -1694,4 +1695,34 @@ function copyFunction() {
 function outFunc() {
   var tooltip = document.getElementById("myTooltip");
   tooltip.innerHTML = "Copy";
+}
+
+//iklan
+async function allowCorsBro() {
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const apiUrl =
+    "://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js";
+  try {
+    const response = await fetch(apiUrl);
+    console.log("Ok");
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function PkJnRObc() {
+  var content = `
+  <script type="text/javascript">
+	atOptions = {
+		'key' : '53d4fb43bf38bed090f277872cdd93e7',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+	document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '${allowCorsBro()}"></scr' + 'ipt>');
+</script>
+  `;
+  $("#CXWeBKy").html(content);
 }
