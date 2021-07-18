@@ -1697,7 +1697,7 @@ function outFunc() {
   tooltip.innerHTML = "Copy";
 }
 
-//iklan
+//iklan//
 async function allowCorsBro() {
   const proxyUrl = "https://cors-anywhere.herokuapp.com/";
   const apiUrl =
