@@ -7,10 +7,7 @@ function init() {
    <div id="nav">
    </div>
 </header>
-    <!-- iklan -->
-    <div id="CXWeBKy" class="vQYyEkn is-center">
-    </div>
-    <!-- iklan -->
+    
 <div>
 <div id="content" style="padding-top: ${UI.header_padding}px;${
     UI.fixed_footer ? " padding-bottom: clamp(170px, 100%, 300px);" : ""
@@ -323,7 +320,22 @@ function requestSearch(params, resultCallback) {
 
 // Render file list
 function list(path) {
-  var content = `<div class="container">${UI.fixed_header ? "<br>" : ""}
+  var content = `
+  <!-- iklan -->
+    <div id="CXWeBKy" class="vQYyEkn is-center">
+    <script type="text/javascript">
+	atOptions = {
+		'key' : '53d4fb43bf38bed090f277872cdd93e7',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+	document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js"></scr' + 'ipt>');
+</script>
+    </div>
+    <!-- iklan -->
+  <div class="container">${UI.fixed_header ? "<br>" : ""}
 	<div id="update"></div>
     <div id="head_md" style="display:none; padding: 20px 20px;"></div>
     <div class="${
@@ -648,7 +660,7 @@ function append_files_to_list(path, files) {
       .find(".number")
       .text($list.find("a.list-group-item-action").length);
   }
-  PkJnRObc();
+  //PkJnRObc();
 }
 
 /**
