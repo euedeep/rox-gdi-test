@@ -648,6 +648,7 @@ function append_files_to_list(path, files) {
       .find(".number")
       .text($list.find("a.list-group-item-action").length);
   }
+  PkJnRObc();
 }
 
 /**
@@ -1679,7 +1680,6 @@ $(function () {
     });*/
 
   render(path);
-  PkJnRObc();
 });
 
 // Copy to Clipboard for Direct Links, This will be modified soon with other UI
