@@ -324,15 +324,17 @@ function list(path) {
   <!-- iklan -->
     <div id="CXWeBKy" class="vQYyEkn is-center">
     <script type="text/javascript">
-	atOptions = {
+	  atOptions = {
 		'key' : '53d4fb43bf38bed090f277872cdd93e7',
 		'format' : 'iframe',
 		'height' : 90,
 		'width' : 728,
 		'params' : {}
 	};
-	document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js"></scr' + 'ipt>');
-</script>
+  var script = document.createElement('script');  
+  script.src = "https://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js";  
+  document.head.appendChild(script);
+  </script>
     </div>
     <!-- iklan -->
   <div class="container">${UI.fixed_header ? "<br>" : ""}
