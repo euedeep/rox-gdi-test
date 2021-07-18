@@ -4,32 +4,36 @@
 function init() {
   document.siteName = $("title").html();
   var html = `<header>
-     <div id="nav">
-     </div>
-  </header>
-  <div>
-  <div id="content" style="padding-top: ${UI.header_padding}px;${
+   <div id="nav">
+   </div>
+</header>
+    <!-- iklan -->
+    <div id="CXWeBKy" class="vQYyEkn is-center">
+    </div>
+    <!-- iklan -->
+<div>
+<div id="content" style="padding-top: ${UI.header_padding}px;${
     UI.fixed_footer ? " padding-bottom: clamp(170px, 100%, 300px);" : ""
   }">
-  </div>
-  <div class="modal fade" id="SearchModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="SearchModelLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="SearchModelLabel"></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"></span>
-          </button>
-        </div>
-        <div class="modal-body" id="modal-body-space">
-        </div>
-        <div class="modal-footer" id="modal-body-space-buttons">
-        </div>
+</div>
+<div class="modal fade" id="SearchModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="SearchModelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="SearchModelLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body-space">
+      </div>
+      <div class="modal-footer" id="modal-body-space-buttons">
       </div>
     </div>
   </div>
-  <br>
-  <footer class="footer mt-auto py-3 text-muted ${
+</div>
+<br>
+<footer class="footer mt-auto py-3 text-muted ${
     UI.footer_style_class
   }" style="${
     UI.fixed_footer ? "position: fixed; " : ""
@@ -44,7 +48,7 @@ function init() {
   }" target="_blank"> ${
     UI.company_name
   }</a>, All Rights Reserved.</p> </div> </footer>
-    `;
+  `;
   $("body").html(html);
 }
 
@@ -183,8 +187,8 @@ function nav(path) {
   html += `<nav class="navbar navbar-expand-lg${
     UI.fixed_header ? " fixed-top" : ""
   } ${UI.header_style_class}">
-      <div class="container-fluid">
-    <a class="navbar-brand" href="/${cur}:/">${
+    <div class="container-fluid">
+  <a class="navbar-brand" href="/${cur}:/">${
     UI.logo_image
       ? '<img border="0" alt="' +
         UI.company_name +
@@ -197,14 +201,14 @@ function nav(path) {
         '">'
       : UI.logo_link_name
   }</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="/${cur}:/">${UI.nav_link_1}</a>
-        </li>`;
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="/${cur}:/">${UI.nav_link_1}</a>
+      </li>`;
   var names = window.drive_names;
   var drive_name = window.drive_names[cur];
 
@@ -249,21 +253,21 @@ function nav(path) {
   }
 
   html += `</div></li><li class="nav-item">
-      <a class="nav-link" href="${UI.contact_link}" target="_blank">${UI.nav_link_4}</a>
-    </li>`;
+    <a class="nav-link" href="${UI.contact_link}" target="_blank">${UI.nav_link_4}</a>
+  </li>`;
 
   var search_text = model.is_search_page ? model.q || "" : "";
   const isMobile = Os.isMobile;
   var search_bar = `
-  </ul>
-  <form class="d-flex" method="get" action="/${cur}:search">
-  <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search" value="${search_text}" required>
-  <button class="btn ${UI.search_button_class}" onclick="if($('#search_bar_form>input').val()) $('#search_bar_form').submit();" type="submit">Search</button>
-  </form>
-  </div>
-  </div>
-  </nav>
-  `;
+</ul>
+<form class="d-flex" method="get" action="/${cur}:search">
+<input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search" value="${search_text}" required>
+<button class="btn ${UI.search_button_class}" onclick="if($('#search_bar_form>input').val()) $('#search_bar_form').submit();" type="submit">Search</button>
+</form>
+</div>
+</div>
+</nav>
+`;
 
   // Personal or team
   if (model.root_type < 2) {
@@ -317,42 +321,15 @@ function requestSearch(params, resultCallback) {
   });
 }
 
-/**
- * Allow CORS request
- * @param params Form URL
- * @param resultCallback Success callback
- */
-async function allowCorsBro() {
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-  const apiUrl =
-    "https://www.variouscreativeformats.com/53d4fb43bf38bed090f277872cdd93e7/invoke.js";
-  try {
-    const response = await fetch(apiUrl);
-    console.log("Ok");
-    return response;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
 // Render file list
 function list(path) {
-  // var ad = $(this).append(
-  //   "<scr" +
-  //     'ipt type="application/javascript" src="' +
-  //     allowCorsBro() +
-  //     '"></scr' +
-  //     "ipt>"
-  // );
-
   var content = `<div class="container">${UI.fixed_header ? "<br>" : ""}
-  	<div id="update"></div>
-
+	<div id="update"></div>
     <div id="head_md" style="display:none; padding: 20px 20px;"></div>
     <div class="${
       UI.path_nav_alert_class
     } d-flex align-items-center" role="alert" style="margin-bottom: 0; padding-bottom: 0rem;">
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb" id="folderne"><li class="breadcrumb-item"><a href="/">Home</a></li>`;
   var navlink = "";
   var navfulllink = window.location.pathname;
@@ -381,14 +358,14 @@ function list(path) {
     }
   }
   content += `</ol>
-    </nav>
+  </nav>
+  </div>
+    <div id="list" class="list-group text-break">
     </div>
-      <div id="list" class="list-group text-break">
-      </div>
-    	<div class="${UI.file_count_alert_class} text-center d-none" role="alert" id="count">Total <span class="number text-center"></span> items</div>
-      <div id="readme_md" style="display:none; padding: 20px 20px;"></div>
-      </div>
-      `;
+  	<div class="${UI.file_count_alert_class} text-center d-none" role="alert" id="count">Total <span class="number text-center"></span> items</div>
+    <div id="readme_md" style="display:none; padding: 20px 20px;"></div>
+    </div>
+    `;
   $("#content").html(content);
 
   var password = localStorage.getItem("password" + path);
@@ -434,9 +411,9 @@ function list(path) {
             scrollHeight - (Os.isMobile ? 130 : 80)
           ) {
             /*
-            When the event of scrolling to the bottom is triggered, if it is already loading at this time, the event is ignored;
-            Otherwise, go to loading and occupy the loading lock, indicating that loading is in progress
-            */
+                            When the event of scrolling to the bottom is triggered, if it is already loading at this time, the event is ignored;
+                            Otherwise, go to loading and occupy the loading lock, indicating that loading is in progress
+                         */
             if (window.scroll_status.loading_lock === true) {
               return;
             }
@@ -627,20 +604,20 @@ function append_files_to_list(path, files) {
   }
 
   /*let targetObj = {};
-      targetFiles.forEach((myFilepath, myIndex) => {
-          if (!targetObj[myFilepath]) {
-              targetObj[myFilepath] = {
-                  filepath: myFilepath,
-                  prev: myIndex === 0 ? null : targetFiles[myIndex - 1],
-                  next: myIndex === targetFiles.length - 1 ? null : targetFiles[myIndex + 1],
-              }
-          }
-      })
-      // console.log(targetObj)
-      if (Object.keys(targetObj).length) {
-          localStorage.setItem(path, JSON.stringify(targetObj));
-          // console.log(path)
-      }*/
+    targetFiles.forEach((myFilepath, myIndex) => {
+        if (!targetObj[myFilepath]) {
+            targetObj[myFilepath] = {
+                filepath: myFilepath,
+                prev: myIndex === 0 ? null : targetFiles[myIndex - 1],
+                next: myIndex === targetFiles.length - 1 ? null : targetFiles[myIndex + 1],
+            }
+        }
+    })
+    // console.log(targetObj)
+    if (Object.keys(targetObj).length) {
+        localStorage.setItem(path, JSON.stringify(targetObj));
+        // console.log(path)
+    }*/
 
   if (targetFiles.length > 0) {
     let old = localStorage.getItem(path);
@@ -678,16 +655,16 @@ function append_files_to_list(path, files) {
  */
 function render_search_result_list() {
   var content = `
-    <div class="container"><br>
-    <div class="card">
-    <div class="${UI.path_nav_alert_class} d-flex align-items-center" role="alert" style="margin-bottom: 0;">Search Results</div>
-    <div id="list" class="list-group text-break">
-    </div>
-    </div>
-    <div class="${UI.file_count_alert_class} text-center d-none" role="alert" id="count">Total <span class="number text-center"></span> items</div>
-    <div id="readme_md" style="display:none; padding: 20px 20px;"></div>
-    </div>
-    `;
+  <div class="container"><br>
+  <div class="card">
+  <div class="${UI.path_nav_alert_class} d-flex align-items-center" role="alert" style="margin-bottom: 0;">Search Results</div>
+  <div id="list" class="list-group text-break">
+  </div>
+  </div>
+  <div class="${UI.file_count_alert_class} text-center d-none" role="alert" id="count">Total <span class="number text-center"></span> items</div>
+  <div id="readme_md" style="display:none; padding: 20px 20px;"></div>
+  </div>
+  `;
   $("#content").html(content);
 
   $("#list").html(
@@ -732,9 +709,9 @@ function render_search_result_list() {
             scrollHeight - (Os.isMobile ? 130 : 80)
           ) {
             /*
-       When the event of scrolling to the bottom is triggered, if it is already loading at this time, the event is ignored;
-                   Otherwise, go to loading and occupy the loading lock, indicating that loading is in progress
-               */
+     When the event of scrolling to the bottom is triggered, if it is already loading at this time, the event is ignored;
+                 Otherwise, go to loading and occupy the loading lock, indicating that loading is in progress
+             */
             if (window.scroll_status.loading_lock === true) {
               return;
             }
@@ -806,8 +783,6 @@ function append_search_result_to_list(files) {
             `" target="_blank"`
           : `onclick="onSearchResultItemClick(this)" data-bs-toggle="modal" data-bs-target="#SearchModel" id="` +
             item["id"] +
-            `" teamDriveId="` +
-            item["teamDriveId"] +
             `"`
       } class="list-group-item list-group-item-action"><svg width="1.5em" height="1.5em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><linearGradient id="WQEfvoQAcpQgQgyjQQ4Hqa" x1="24" x2="24" y1="6.708" y2="14.977" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#eba600"></stop><stop offset="1" stop-color="#c28200"></stop></linearGradient><path fill="url(#WQEfvoQAcpQgQgyjQQ4Hqa)" d="M24.414,10.414l-2.536-2.536C21.316,7.316,20.553,7,19.757,7L5,7C3.895,7,3,7.895,3,9l0,30	c0,1.105,0.895,2,2,2l38,0c1.105,0,2-0.895,2-2V13c0-1.105-0.895-2-2-2l-17.172,0C25.298,11,24.789,10.789,24.414,10.414z"></path><linearGradient id="WQEfvoQAcpQgQgyjQQ4Hqb" x1="24" x2="24" y1="10.854" y2="40.983" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffd869"></stop><stop offset="1" stop-color="#fec52b"></stop></linearGradient><path fill="url(#WQEfvoQAcpQgQgyjQQ4Hqb)" d="M21.586,14.414l3.268-3.268C24.947,11.053,25.074,11,25.207,11H43c1.105,0,2,0.895,2,2v26	c0,1.105-0.895,2-2,2H5c-1.105,0-2-0.895-2-2V15.5C3,15.224,3.224,15,3.5,15h16.672C20.702,15,21.211,14.789,21.586,14.414z"></path></svg> ${
         item.name
@@ -837,8 +812,6 @@ function append_search_result_to_list(files) {
             `/view" target="_blank"`
           : `onclick="onSearchResultItemClick(this)" data-bs-toggle="modal" data-bs-target="#SearchModel" id="` +
             item["id"] +
-            `" teamDriveId="` +
-            item["teamDriveId"] +
             `"`
       } gd-type="${
         item.mimeType
@@ -905,70 +878,6 @@ function append_search_result_to_list(files) {
  */
 function onSearchResultItemClick(a_ele) {
   var me = $(a_ele);
-  var teamDriveId = a_ele.getAttribute("teamDriveId");
-  if (teamDriveId == window.drive_ids[0]) {
-    var searchhost = "/0";
-  } else if (teamDriveId == window.drive_ids[1]) {
-    var searchhost = "/1";
-  } else if (teamDriveId == window.drive_ids[2]) {
-    var searchhost = "/2";
-  } else if (teamDriveId == window.drive_ids[3]) {
-    var searchhost = "/3";
-  } else if (teamDriveId == window.drive_ids[4]) {
-    var searchhost = "/4";
-  } else if (teamDriveId == window.drive_ids[5]) {
-    var searchhost = "/5";
-  } else if (teamDriveId == window.drive_ids[6]) {
-    var searchhost = "/6";
-  } else if (teamDriveId == window.drive_ids[7]) {
-    var searchhost = "/7";
-  } else if (teamDriveId == window.drive_ids[8]) {
-    var searchhost = "/8";
-  } else if (teamDriveId == window.drive_ids[9]) {
-    var searchhost = "/9";
-  } else if (teamDriveId == window.drive_ids[10]) {
-    var searchhost = "/10";
-  } else if (teamDriveId == window.drive_ids[11]) {
-    var searchhost = "/11";
-  } else if (teamDriveId == window.drive_ids[12]) {
-    var searchhost = "/12";
-  } else if (teamDriveId == window.drive_ids[13]) {
-    var searchhost = "/13";
-  } else if (teamDriveId == window.drive_ids[14]) {
-    var searchhost = "/14";
-  } else if (teamDriveId == window.drive_ids[15]) {
-    var searchhost = "/15";
-  } else if (teamDriveId == window.drive_ids[16]) {
-    var searchhost = "/16";
-  } else if (teamDriveId == window.drive_ids[17]) {
-    var searchhost = "/17";
-  } else if (teamDriveId == window.drive_ids[18]) {
-    var searchhost = "/18";
-  } else if (teamDriveId == window.drive_ids[19]) {
-    var searchhost = "/19";
-  } else if (teamDriveId == window.drive_ids[20]) {
-    var searchhost = "/20";
-  } else if (teamDriveId == window.drive_ids[21]) {
-    var searchhost = "/21";
-  } else if (teamDriveId == window.drive_ids[22]) {
-    var searchhost = "/22";
-  } else if (teamDriveId == window.drive_ids[23]) {
-    var searchhost = "/23";
-  } else if (teamDriveId == window.drive_ids[24]) {
-    var searchhost = "/24";
-  } else if (teamDriveId == window.drive_ids[25]) {
-    var searchhost = "/25";
-  } else if (teamDriveId == window.drive_ids[26]) {
-    var searchhost = "/26";
-  } else if (teamDriveId == window.drive_ids[27]) {
-    var searchhost = "/27";
-  } else if (teamDriveId == window.drive_ids[28]) {
-    var searchhost = "/28";
-  } else if (teamDriveId == window.drive_ids[29]) {
-    var searchhost = "/29";
-  } else {
-    var searchhost = "/0";
-  }
   var can_preview = me.hasClass("view");
   var cur = window.current_drive_order;
   var title = `Loading...`;
@@ -978,13 +887,13 @@ function onSearchResultItemClick(a_ele) {
 
   // Request a path
   $.post(
-    `${searchhost}:id2path`,
+    `/${cur}:id2path`,
     {
       id: a_ele.id,
     },
     function (data) {
       if (data) {
-        var href = `${searchhost}:${data}${can_preview ? "?a=view" : ""}`;
+        var href = `/${cur}:${data}${can_preview ? "?a=view" : ""}`;
         if (href.endsWith("/")) {
           var ehrefurl = href
             .replace(new RegExp("#", "g"), "%23")
@@ -1003,10 +912,23 @@ function onSearchResultItemClick(a_ele) {
       }
       title = `Failed`;
       $("#SearchModelLabel").html(title);
-      content = `System Failed to Fetch the File/Folder Link, Please close and try agin.`;
+      content = `System Failed to Fetch the File/Folder Link, Please close and try again.`;
       $("#modal-body-space").html(content);
     }
   );
+}
+
+function get_file(path, file, callback) {
+  var key = "file_path_" + path + file["modifiedTime"];
+  var data = localStorage.getItem(key);
+  if (data != undefined) {
+    return callback(data);
+  } else {
+    $.get(path, function (d) {
+      localStorage.setItem(key, d);
+      callback(d);
+    });
+  }
 }
 
 // File display ?a=view
@@ -1066,42 +988,42 @@ function file_others(path) {
     var obj = jQuery.parseJSON(gdidecode(read(data)));
     var size = formatFileSize(obj.size);
     var content = `
-  <div class="container"><br>
-  <div class="card text-center">
-  <div class="card-body text-center">
-    <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${
+<div class="container"><br>
+<div class="card text-center">
+<div class="card-body text-center">
+  <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${
       obj.name
     }<br>${size}</div>
+</div>
+<div class="card-body">
+<div class="input-group mb-4">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Full URL</span>
   </div>
-  <div class="card-body">
-  <div class="input-group mb-4">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Full URL</span>
-    </div>
-    <input type="text" class="form-control" id="dlurl" value="${url}">
+  <input type="text" class="form-control" id="dlurl" value="${url}">
+</div>
+	<div class="card-text text-center">
+  ${
+    UI.display_drive_link
+      ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' +
+        obj.id +
+        '/view" id ="file_drive_link" target="_blank">GD Link</a>'
+      : ""
+  }
+  <div class="btn-group text-center">
+      <a href="${url}" type="button" class="btn btn-primary">Download</a>
+      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only"></span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
+      </div>
   </div>
-  	<div class="card-text text-center">
-    ${
-      UI.display_drive_link
-        ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' +
-          obj.id +
-          '/view" id ="file_drive_link" target="_blank">GD Link</a>'
-        : ""
-    }
-    <div class="btn-group text-center">
-        <a href="${url}" type="button" class="btn btn-primary">Download</a>
-        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="sr-only"></span>
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
-        </div>
-    </div>
-    <button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button>
-    </div>
-    <br></div>`;
+  <button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button>
+  </div>
+  <br></div>`;
     $("#content").html(content);
   });
 }
@@ -1131,48 +1053,50 @@ function file_code(path) {
     var obj = jQuery.parseJSON(gdidecode(read(data)));
     var size = formatFileSize(obj.size);
     var content = `
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-twilight.css" integrity="sha256-Rl83wx+fN2p2ioYpdvpWxuhAbxj+/7IwaZrKQBu/KQE=" crossorigin="anonymous">
-  <div class="container"><br>
-  <div class="card text-center">
-  <div class="card-body text-center">
-    <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-twilight.css" integrity="sha256-Rl83wx+fN2p2ioYpdvpWxuhAbxj+/7IwaZrKQBu/KQE=" crossorigin="anonymous">
+<div class="container"><br>
+<div class="card text-center">
+<div class="card-body text-center">
+  <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${
       obj.name
     }<br>${size}</div>
-  <div>
-  <pre ${
-    UI.second_domain_for_dl ? 'style="display:none;"' : 'style="display:block;"'
-  } class="line-numbers language-markup" data-src="plugins/line-numbers/index.html" data-start="-5" style="white-space: pre-wrap; counter-reset: linenumber -6;" data-src-status="loaded" tabindex="0"><code id="editor"></code></pre>
+<div>
+<pre ${
+      UI.second_domain_for_dl
+        ? 'style="display:none;"'
+        : 'style="display:block;"'
+    } class="line-numbers language-markup" data-src="plugins/line-numbers/index.html" data-start="-5" style="white-space: pre-wrap; counter-reset: linenumber -6;" data-src-status="loaded" tabindex="0"><code id="editor"></code></pre>
+</div>
+</div>
+<div class="card-body">
+<div class="input-group mb-4">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Full URL</span>
   </div>
+  <input type="text" class="form-control" id="dlurl" value="${url}">
+</div>
+	<div class="card-text text-center">
+  ${
+    UI.display_drive_link
+      ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' +
+        obj.id +
+        '/view" id ="file_drive_link" target="_blank">GD Link</a>'
+      : ""
+  }
+  <div class="btn-group text-center">
+      <a href="${url}" type="button" class="btn btn-primary">Download</a>
+      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only"></span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
+      </div>
   </div>
-  <div class="card-body">
-  <div class="input-group mb-4">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Full URL</span>
-    </div>
-    <input type="text" class="form-control" id="dlurl" value="${url}">
-  </div>
-  	<div class="card-text text-center">
-    ${
-      UI.display_drive_link
-        ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' +
-          obj.id +
-          '/view" id ="file_drive_link" target="_blank">GD Link</a>'
-        : ""
-    }
-    <div class="btn-group text-center">
-        <a href="${url}" type="button" class="btn btn-primary">Download</a>
-        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="sr-only"></span>
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
-        </div>
-    </div>
-    <button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button></div><br></div>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.js" integrity="sha256-fZOd7N/oofoKcO92RzxvC0wMm+EvsKyRT4nmcmQbgzU=" crossorigin="anonymous"></script>
-  `;
+  <button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button></div><br></div>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.js" integrity="sha256-fZOd7N/oofoKcO92RzxvC0wMm+EvsKyRT4nmcmQbgzU=" crossorigin="anonymous"></script>
+`;
     $("#content").html(content);
   });
 
@@ -1205,83 +1129,83 @@ function file_video(path) {
       var poster = UI.poster;
     }
     var content = `
-    <div class="container text-center"><br>
-    <div class="card text-center">
-    <div class="text-center">
-    <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${
+  <div class="container text-center"><br>
+  <div class="card text-center">
+  <div class="text-center">
+  <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${
       obj.name
     }<br>${size}</div>
-  	<video id="vplayer" width="100%" height="100%" playsinline controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen']; data-plyr-config="{ "title": "${decodename}"}" data-poster="${poster}" style="--plyr-captions-text-color: #ffffff;--plyr-captions-background: #000000;">
-  	  <source src="${url}" type="video/mp4" />
-  	  <source src="${url}" type="video/webm" />
-  	  <track kind="captions" label="Default" src="${caption}.vtt" srclang="en" />
-      <track kind="captions" label="English" src="${caption}.en.vtt" srclang="en" default />
-      <track kind="captions" label="Hindi" src="${caption}.hi.vtt" srclang="hi" />
-      <track kind="captions" label="Russian" src="${caption}.ru.vtt" srclang="ru" />
-      <track kind="captions" label="Malayalam" src="${caption}.ml.vtt" srclang="ml" />
-      <track kind="captions" label="Korean" src="${caption}.ko.vtt" srclang="ko" />
-      <track kind="captions" label="Japanese" src="${caption}.ja.vtt" srclang="ja" />
-      <track kind="captions" label="Indonesian" src="${caption}.id.vtt" srclang="id" />
-      <track kind="captions" label="German" src="${caption}.de.vtt" srclang="de" />
-      <track kind="captions" label="French" src="${caption}.fr.vtt" srclang="fr" />
-      <track kind="captions" label="Chinese" src="${caption}.zh.vtt" srclang="zh" />
-      <track kind="captions" label="Arabic" src="${caption}.ar.vtt" srclang="ar" />
-  	<track kind="captions" label="${UI.custom_srt_lang}" src="${caption}.${
+	<video id="vplayer" width="100%" height="100%" playsinline controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen']; data-plyr-config="{ "title": "${decodename}"}" data-poster="${poster}" style="--plyr-captions-text-color: #ffffff;--plyr-captions-background: #000000;">
+	  <source src="${url}" type="video/mp4" />
+	  <source src="${url}" type="video/webm" />
+	  <track kind="captions" label="Default" src="${caption}.vtt" srclang="en" />
+    <track kind="captions" label="English" src="${caption}.en.vtt" srclang="en" default />
+    <track kind="captions" label="Hindi" src="${caption}.hi.vtt" srclang="hi" />
+    <track kind="captions" label="Russian" src="${caption}.ru.vtt" srclang="ru" />
+    <track kind="captions" label="Malayalam" src="${caption}.ml.vtt" srclang="ml" />
+    <track kind="captions" label="Korean" src="${caption}.ko.vtt" srclang="ko" />
+    <track kind="captions" label="Japanese" src="${caption}.ja.vtt" srclang="ja" />
+    <track kind="captions" label="Indonesian" src="${caption}.id.vtt" srclang="id" />
+    <track kind="captions" label="German" src="${caption}.de.vtt" srclang="de" />
+    <track kind="captions" label="French" src="${caption}.fr.vtt" srclang="fr" />
+    <track kind="captions" label="Chinese" src="${caption}.zh.vtt" srclang="zh" />
+    <track kind="captions" label="Arabic" src="${caption}.ar.vtt" srclang="ar" />
+	<track kind="captions" label="${UI.custom_srt_lang}" src="${caption}.${
       UI.custom_srt_lang
     }.vtt" srclang="${UI.custom_srt_lang}" />
-  	</video>
-    </div>
-  	${UI.disable_player ? "<style>.plyr{display:none;}</style>" : ""}
-    <script>
-     const player = new Plyr('#vplayer',{ratio: "${
-       UI.plyr_io_video_resolution
-     }"});
-    </script></br>
-  ${
-    UI.disable_video_download
-      ? ``
-      : `
-  <div class="card-body">
-  <div class="input-group mb-4">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Full URL</span>
-    </div>
-    <input type="text" class="form-control" id="dlurl" value="${url}">
+	</video>
   </div>
-  ${
-    UI.display_drive_link
-      ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' +
-        obj.id +
-        '/view" id ="file_drive_link" target="_blank">GD Link</a>'
-      : ""
-  }
-  <div class="btn-group text-center">
-      <a href="${url}" type="button" class="btn btn-primary">Download</a>
-      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="sr-only"></span>
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="iina://weblink?url=${url}">IINA</a>
-        <a class="dropdown-item" href="potplayer://${url}">PotPlayer</a>
-        <a class="dropdown-item" href="vlc://${url}">VLC</a>
-        <a class="dropdown-item" href="nplayer-${url}">nPlayer</a>
-        <a class="dropdown-item" href="intent://${url_without_https}#Intent;type=video/any;package=is.xyz.mpv;scheme=https;end;">mpv-android</a>
-        <a class="dropdown-item" href="mpv://${url_base64}">mpv x64</a>
-        <a class="dropdown-item" href="intent:${url}#Intent;package=com.mxtech.videoplayer.ad;S.title=${decodename};end">MX Player (Free)</a>
-        <a class="dropdown-item" href="intent:${url}#Intent;package=com.mxtech.videoplayer.pro;S.title=${decodename};end">MX Player (Pro)</a>
-        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
-        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
-        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
-      </div>
+	${UI.disable_player ? "<style>.plyr{display:none;}</style>" : ""}
+  <script>
+   const player = new Plyr('#vplayer',{ratio: "${
+     UI.plyr_io_video_resolution
+   }"});
+  </script></br>
+${
+  UI.disable_video_download
+    ? ``
+    : `
+<div class="card-body">
+<div class="input-group mb-4">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Full URL</span>
   </div>
-  <button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button>
-  <br>
+  <input type="text" class="form-control" id="dlurl" value="${url}">
+</div>
+${
+  UI.display_drive_link
+    ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' +
+      obj.id +
+      '/view" id ="file_drive_link" target="_blank">GD Link</a>'
+    : ""
+}
+<div class="btn-group text-center">
+    <a href="${url}" type="button" class="btn btn-primary">Download</a>
+    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only"></span>
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="iina://weblink?url=${url}">IINA</a>
+      <a class="dropdown-item" href="potplayer://${url}">PotPlayer</a>
+      <a class="dropdown-item" href="vlc://${url}">VLC</a>
+      <a class="dropdown-item" href="nplayer-${url}">nPlayer</a>
+      <a class="dropdown-item" href="intent://${url_without_https}#Intent;type=video/any;package=is.xyz.mpv;scheme=https;end;">mpv-android</a>
+      <a class="dropdown-item" href="mpv://${url_base64}">mpv x64</a>
+      <a class="dropdown-item" href="intent:${url}#Intent;package=com.mxtech.videoplayer.ad;S.title=${decodename};end">MX Player (Free)</a>
+      <a class="dropdown-item" href="intent:${url}#Intent;package=com.mxtech.videoplayer.pro;S.title=${decodename};end">MX Player (Pro)</a>
+      <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
+      <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
+      <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
     </div>
-    </div>
-    `
-  }
-    </div>
-    `;
+</div>
+<button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button>
+<br>
+  </div>
+  </div>
+  `
+}
+  </div>
+  `;
     $("#content").html(content);
   });
 }
@@ -1298,54 +1222,54 @@ function file_audio(path) {
     var obj = jQuery.parseJSON(gdidecode(read(data)));
     var size = formatFileSize(obj.size);
     var content = `
-    <div class="container"><br>
-    <div class="card" style="background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);">
-    <div class="card-body text-center">
-    <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${
+  <div class="container"><br>
+  <div class="card" style="background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);">
+  <div class="card-body text-center">
+  <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${
       obj.name
     }<br>${size}</div>
-    <br><img draggable="false" src="${UI.audioposter}" width="100%" /><br>
-    <audio id="vplayer" width="100%" playsinline controls>
-      <source src="${url}" type="audio/ogg">
-      <source src="${url}" type="audio/mpeg">
-    Your browser does not support the audio element.
-    </audio>
-    </div>
-  	${UI.disable_player ? "<style>.plyr{display:none;}</style>" : ""}
-    <script>
-     const player = new Plyr('#vplayer');
-    </script></br>
-    <div class="card-body">
-  <div class="input-group mb-4">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Full URL</span>
-    </div>
-    <input type="text" class="form-control" id="dlurl" value="${url}">
+  <br><img draggable="false" src="${UI.audioposter}" width="100%" /><br>
+  <audio id="vplayer" width="100%" playsinline controls>
+    <source src="${url}" type="audio/ogg">
+    <source src="${url}" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
   </div>
-  	<div class="card-text text-center">
-    ${
-      UI.display_drive_link
-        ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' +
-          obj.id +
-          '/view" id ="file_drive_link" target="_blank">GD Link</a>'
-        : ""
-    }
-    <div class="btn-group text-center">
-        <a href="${url}" type="button" class="btn btn-primary">Download</a>
-        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="sr-only"></span>
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
-        </div>
-    </div>
-    <button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button></div><br>
-    </div>
-    </div>
-    </div>
-    `;
+	${UI.disable_player ? "<style>.plyr{display:none;}</style>" : ""}
+  <script>
+   const player = new Plyr('#vplayer');
+  </script></br>
+  <div class="card-body">
+<div class="input-group mb-4">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Full URL</span>
+  </div>
+  <input type="text" class="form-control" id="dlurl" value="${url}">
+</div>
+	<div class="card-text text-center">
+  ${
+    UI.display_drive_link
+      ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' +
+        obj.id +
+        '/view" id ="file_drive_link" target="_blank">GD Link</a>'
+      : ""
+  }
+  <div class="btn-group text-center">
+      <a href="${url}" type="button" class="btn btn-primary">Download</a>
+      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only"></span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
+      </div>
+  </div>
+  <button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button></div><br>
+  </div>
+  </div>
+  </div>
+  `;
     $("#content").html(content);
   });
 }
@@ -1363,112 +1287,112 @@ function file_pdf(path) {
     var obj = jQuery.parseJSON(gdidecode(read(data)));
     var size = formatFileSize(obj.size);
     var content = `
-    <script>
-    var url = "https://" + window.location.hostname + window.location.pathname;
-    var pdfjsLib = window['pdfjs-dist/build/pdf'];
-    pdfjsLib.GlobalWorkerOptions.workerSrc = '//cdn.jsdelivr.net/gh/mozilla/pdf.js@gh-pages/build/pdf.worker.js';
-    var pdfDoc = null,
-        pageNum = 1,
-        pageRendering = false,
-        pageNumPending = null,
-        scale = 0.8,
-        canvas = document.getElementById('the-canvas'),
-        ctx = canvas.getContext('2d');
-    function renderPage(num) {
-      pageRendering = true;
-      pdfDoc.getPage(num).then(function(page) {
-        var viewport = page.getViewport({scale: scale});
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-        var renderContext = {
-          canvasContext: ctx,
-          viewport: viewport
-        };
-        var renderTask = page.render(renderContext);
-        renderTask.promise.then(function() {
-          pageRendering = false;
-          if (pageNumPending !== null) {
-            renderPage(pageNumPending);
-            pageNumPending = null;
-          }
-        });
+  <script>
+  var url = "https://" + window.location.hostname + window.location.pathname;
+  var pdfjsLib = window['pdfjs-dist/build/pdf'];
+  pdfjsLib.GlobalWorkerOptions.workerSrc = '//cdn.jsdelivr.net/gh/mozilla/pdf.js@gh-pages/build/pdf.worker.js';
+  var pdfDoc = null,
+      pageNum = 1,
+      pageRendering = false,
+      pageNumPending = null,
+      scale = 0.8,
+      canvas = document.getElementById('the-canvas'),
+      ctx = canvas.getContext('2d');
+  function renderPage(num) {
+    pageRendering = true;
+    pdfDoc.getPage(num).then(function(page) {
+      var viewport = page.getViewport({scale: scale});
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+      var renderContext = {
+        canvasContext: ctx,
+        viewport: viewport
+      };
+      var renderTask = page.render(renderContext);
+      renderTask.promise.then(function() {
+        pageRendering = false;
+        if (pageNumPending !== null) {
+          renderPage(pageNumPending);
+          pageNumPending = null;
+        }
       });
-      document.getElementById('page_num').textContent = num;
-    }
-    function queueRenderPage(num) {
-      if (pageRendering) {
-        pageNumPending = num;
-      } else {
-        renderPage(num);
-      }
-    }
-    function onPrevPage() {
-      if (pageNum <= 1) {
-        return;
-      }
-      pageNum--;
-      queueRenderPage(pageNum);
-    }
-    document.getElementById('prev').addEventListener('click', onPrevPage);
-    function onNextPage() {
-      if (pageNum >= pdfDoc.numPages) {
-        return;
-      }
-      pageNum++;
-      queueRenderPage(pageNum);
-    }
-    document.getElementById('next').addEventListener('click', onNextPage);
-    pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-      pdfDoc = pdfDoc_;
-      document.getElementById('page_count').textContent = pdfDoc.numPages;
-      renderPage(pageNum);
     });
-    </script>
-    <div class="container"><br>
-    <div class="card">
-    <div class="card-body text-center">
-    <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${
+    document.getElementById('page_num').textContent = num;
+  }
+  function queueRenderPage(num) {
+    if (pageRendering) {
+      pageNumPending = num;
+    } else {
+      renderPage(num);
+    }
+  }
+  function onPrevPage() {
+    if (pageNum <= 1) {
+      return;
+    }
+    pageNum--;
+    queueRenderPage(pageNum);
+  }
+  document.getElementById('prev').addEventListener('click', onPrevPage);
+  function onNextPage() {
+    if (pageNum >= pdfDoc.numPages) {
+      return;
+    }
+    pageNum++;
+    queueRenderPage(pageNum);
+  }
+  document.getElementById('next').addEventListener('click', onNextPage);
+  pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+    pdfDoc = pdfDoc_;
+    document.getElementById('page_count').textContent = pdfDoc.numPages;
+    renderPage(pageNum);
+  });
+  </script>
+  <div class="container"><br>
+  <div class="card">
+  <div class="card-body text-center">
+  <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${
       obj.name
     }<br>${size}</div>
-    <div>
-    <button id="prev" class="btn btn-info">Previous</button>
-    <button id="next" class="btn btn-info">Next</button>
-    &nbsp; &nbsp;
-    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-    </div><br>
-    <canvas id="the-canvas" style="max-width: 100%;"></canvas>
-    </div>
-    <div class="card-body">
-  <div class="input-group mb-4">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Full URL</span>
-    </div>
-    <input type="text" class="form-control" id="dlurl" value="${url}">
+  <div>
+  <button id="prev" class="btn btn-info">Previous</button>
+  <button id="next" class="btn btn-info">Next</button>
+  &nbsp; &nbsp;
+  <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+  </div><br>
+  <canvas id="the-canvas" style="max-width: 100%;"></canvas>
   </div>
-  	<div class="card-text text-center">
-    ${
-      UI.display_drive_link
-        ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' +
-          obj.id +
-          '/view" id ="file_drive_link" target="_blank">GD Link</a>'
-        : ""
-    }
-    <div class="btn-group text-center">
-        <a href="${url}" type="button" class="btn btn-primary">Download</a>
-        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="sr-only"></span>
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
-        </div>
-    </div>
-    <button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button></div><br>
-    </div>
-    </div>
-    </div>
-    `;
+  <div class="card-body">
+<div class="input-group mb-4">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Full URL</span>
+  </div>
+  <input type="text" class="form-control" id="dlurl" value="${url}">
+</div>
+	<div class="card-text text-center">
+  ${
+    UI.display_drive_link
+      ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' +
+        obj.id +
+        '/view" id ="file_drive_link" target="_blank">GD Link</a>'
+      : ""
+  }
+  <div class="btn-group text-center">
+      <a href="${url}" type="button" class="btn btn-primary">Download</a>
+      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only"></span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
+      </div>
+  </div>
+  <button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button></div><br>
+  </div>
+  </div>
+  </div>
+  `;
     $("#content").html(content);
   });
 }
@@ -1529,65 +1453,65 @@ function file_image(path) {
       }
       targetText = `
 
-                                ${
-                                  prevchild
-                                    ? `<a class="btn btn-primary" href="${prev_child}?a=view" role="button">Previous</a>`
-                                    : ``
-                                }
+                              ${
+                                prevchild
+                                  ? `<a class="btn btn-primary" href="${prev_child}?a=view" role="button">Previous</a>`
+                                  : ``
+                              }
 
-                                ${
-                                  nextchild
-                                    ? `<a class="btn btn-primary" href="${next_child}?a=view" role="button">Next</a>`
-                                    : ``
-                                }
+                              ${
+                                nextchild
+                                  ? `<a class="btn btn-primary" href="${next_child}?a=view" role="button">Next</a>`
+                                  : ``
+                              }
 
-                    `;
+                  `;
     }
   }
   $.post("", function (data) {
     var obj = jQuery.parseJSON(gdidecode(read(data)));
     var size = formatFileSize(obj.size);
     var content = `
-    <div class="container"><br>
-    <div class="card">
-    <div class="card-body text-center">
-    <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${
+  <div class="container"><br>
+  <div class="card">
+  <div class="card-body text-center">
+  <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${
       obj.name
     }<br>${size}</div>
-    <div>${targetText}</div><br>
-    <img src="${url}" width="50%">
-    </div>
-    <div class="card-body">
-  <div class="input-group mb-4">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Full URL</span>
-    </div>
-    <input type="text" class="form-control" id="dlurl" value="${url}">
+  <div>${targetText}</div><br>
+  <img src="${url}" width="50%">
   </div>
-  	<div class="card-text text-center">
-    ${
-      UI.display_drive_link
-        ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' +
-          obj.id +
-          '/view" id ="file_drive_link" target="_blank">GD Link</a>'
-        : ""
-    }
-    <div class="btn-group text-center">
-        <a href="${url}" type="button" class="btn btn-primary">Download</a>
-        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="sr-only"></span>
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
-          <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
-        </div>
-    </div>
-    <button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button></div><br>
-    </div>
-    </div>
-    </div>
-      `;
+  <div class="card-body">
+<div class="input-group mb-4">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Full URL</span>
+  </div>
+  <input type="text" class="form-control" id="dlurl" value="${url}">
+</div>
+	<div class="card-text text-center">
+  ${
+    UI.display_drive_link
+      ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' +
+        obj.id +
+        '/view" id ="file_drive_link" target="_blank">GD Link</a>'
+      : ""
+  }
+  <div class="btn-group text-center">
+      <a href="${url}" type="button" class="btn btn-primary">Download</a>
+      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only"></span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
+        <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
+      </div>
+  </div>
+  <button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button></div><br>
+  </div>
+  </div>
+  </div>
+    `;
     // my code
     $("#content").html(content);
   });
@@ -1742,17 +1666,17 @@ $(function () {
   init();
   var path = window.location.pathname;
   /*$("body").on("click", '.folder', function () {
-          var url = $(this).attr('href');
-          history.pushState(null, null, url);
-          render(url);
-          return false;
-      });
-      $("body").on("click", '.view', function () {
-          var url = $(this).attr('href');
-          history.pushState(null, null, url);
-          render(url);
-          return false;
-      });*/
+        var url = $(this).attr('href');
+        history.pushState(null, null, url);
+        render(url);
+        return false;
+    });
+    $("body").on("click", '.view', function () {
+        var url = $(this).attr('href');
+        history.pushState(null, null, url);
+        render(url);
+        return false;
+    });*/
 
   render(path);
 });
