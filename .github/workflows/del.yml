@@ -16,3 +16,5 @@ jobs:
     steps:
       - name: Delete Draft Releases
         uses: hugo19941994/delete-draft-releases@v0.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.RUDET_TOKEN }}
